@@ -57,6 +57,7 @@ Prompts:
 - Are there parts of musical taste missing in the dataset  
 
 There are 16 songs in the catalog, and genres include pop, lofi, rock, ambient, jazz, synthwave, indiepop, electronic, classical, funk, folk, metal, and soul. The moods are happy, chill, intense, relaxed, moody, focused, energized, complementative, groovy, wistful, aggressive, and warm. I added 6 new songs which was given by the AI and it has a larger range of genres and moods. There appears to be a wide range of music tastes in the dataset but there are too few for some of them, especially the later genres and moods that were added.
+
 ---
 
 ## 5. Strengths  
@@ -70,6 +71,7 @@ Prompts:
 - Cases where the recommendations matched your intuition  
 
 The user types it gives reasonable results is Happy Pop and Chill Lofi, which is because they go hand in hand. So songs like that would be captured correctly, and this is where it matched my intution. 
+
 ---
 
 ## 6. Limitations and Bias 
@@ -84,6 +86,7 @@ Prompts:
 - Ways the scoring might unintentionally favor some users  
 
 Some limitations include that there are little songs with mid-range energy, with a 0.23 spread which makes it meaningless. Additionally, there are no songs with "sad" and negative valnece mood. There are no partial credit for adjacent genres such as indie pop vs pop. Lofi has the greatest amount of songs and lastly some of the fields are just completely ignored like valence and such. The scoring system would favor users that have more songs with a certain genre or mood or energy like Chill Lofi.
+
 ---
 
 ## 7. Evaluation  
@@ -122,6 +125,7 @@ Prompts:
 - Handling more complex user tastes  
 
 I think some additional features would include having partial genres, such as pop being considered for indie pop. I would also include the other categories like acousticness and valence. Another thing I would do is add recommendations based on what other users preferred which would imrpove the diversity. As for complex user tastes, I would have to include more songs which don't match the usual type of songs like the genre and mood not matching.
+
 ---
 
 ## 9. Personal Reflection  
