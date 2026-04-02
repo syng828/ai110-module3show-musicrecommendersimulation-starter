@@ -83,8 +83,8 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, str]:
     explanation_parts = []
 
     if str(user_prefs.get("genre", "")).strip().lower() == str(song.get("genre", "")).strip().lower():
-        score += 2.0
-        explanation_parts.append("genre match (+2.0)")
+        score += 1.0
+        explanation_parts.append("genre match (+1.0)")
 
     if str(user_prefs.get("mood", "")).strip().lower() == str(song.get("mood", "")).strip().lower():
         score += 1.0

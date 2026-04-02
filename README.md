@@ -31,7 +31,7 @@ You can include a simple diagram or bullet list if helpful.
 
 With real world recommendation systems, there is collaborative filtering based on similar user data, and there is content based filtering which recommends with similar characteristics. Real world applications use a combination of these two. However, I will mostly focused on the content based filtering. The Song features that will be used is mainly genre, mood, and energy (while the others weigh less).The User Profile will store the genre, mood, and energy along with the likes acoustic as already written in the template code. A good starting recipe is:
 
-genre match: +2.0 points
+genre match: +1.0 points
 mood match: +1.0 point
 energy similarity: up to +1.0 point based on how close the song's energy is to the user's target
 
@@ -40,7 +40,18 @@ This would choose which songs to recommend by getting data from the songs a user
 
 Some biases that would occur is prioritizing genre as it has the higher weight over other categories.
 
+Pop, happy, 0.8 energy:
 ![Initial recommendation](/assets/images/screenshot-1.png)
+
+Rock, sad, 0.3 energy: 
+![Rock, sad](/assets/images/screenshot-2.png)
+
+Jazz, relaxed, 0.5 energy: 
+![Jazz, relaxed](/assets/images/screenshot-3.png)
+
+Lofi, intense, 0.9 energy:
+![Lofi, intense](/assets/images/screenshot-4.png)
+
 ---
 
 ## Getting Started
@@ -86,6 +97,7 @@ Use this section to document the experiments you ran. For example:
 - What happened when you added tempo or valence to the score
 - How did your system behave for different types of users
 
+Changing the genre to 0.5 prioritized the other categories like mood and energy more, and tempo or valence added more variety. I did change the genre to 1.0 though, but it seems to behave better for typical preferences.
 ---
 
 ## Limitations and Risks
@@ -99,6 +111,7 @@ Examples:
 - It might over favor one genre or mood
 
 You will go deeper on this in your model card.
+It only has a few songs, and favors conventional songs.
 
 ---
 
@@ -113,7 +126,7 @@ Write 1 to 2 paragraphs here about what you learned:
 - about how recommenders turn data into predictions
 - about where bias or unfairness could show up in systems like this
 
-
+I learned that recommenders can turn data into predictions through weights. Some weights could be considered more than others based on what is usually prefer. However, recommenders would show more songs that are in a greater amount in the data, such as for instance showing LoFi more simply because there is more of that in the data. It would also not know how to show unconventional songs.
 ---
 
 ## 7. `model_card_template.md`

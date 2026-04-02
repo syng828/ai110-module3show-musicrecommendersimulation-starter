@@ -5,6 +5,8 @@
 Give your model a short, descriptive name.  
 Example: **VibeFinder 1.0**  
 
+I chose Vibify 1.0, combining Spotify and Vibe Coding.
+
 ---
 
 ## 2. Intended Use  
@@ -15,7 +17,9 @@ Prompts:
 
 - What kind of recommendations does it generate  
 - What assumptions does it make about the user  
-- Is this for real users or classroom exploration  
+- Is this for real users or classroom exploration   
+
+The recommendations suggests 5 songs, based on genre, mood, and energy. It is for classroom exploration more as there are only 16 songs.
 
 ---
 
@@ -32,6 +36,13 @@ Prompts:
 
 Avoid code here. Pretend you are explaining the idea to a friend who does not program.
 
+So it uses genre, energy, and mood, so it would only consider that. The weights are as follows: 
+genre match: +1.0 points
+mood match: +1.0 point
+energy similarity: up to +1.0 point based on how close the song's energy is to the user's target
+
+From the starter logic the genre had 2.0 points but it was too heavy so it switched to 1.0 points.
+
 ---
 
 ## 4. Data  
@@ -45,6 +56,7 @@ Prompts:
 - Did you add or remove data  
 - Are there parts of musical taste missing in the dataset  
 
+There are 16 songs in the catalog, and genres include pop, lofi, rock, ambient, jazz, synthwave, indiepop, electronic, classical, funk, folk, metal, and soul. The moods are happy, chill, intense, relaxed, moody, focused, energized, complementative, groovy, wistful, aggressive, and warm. I added 6 new songs which was given by the AI and it has a larger range of genres and moods. There appears to be a wide range of music tastes in the dataset but there are too few for some of them, especially the later genres and moods that were added.
 ---
 
 ## 5. Strengths  
@@ -57,6 +69,7 @@ Prompts:
 - Any patterns you think your scoring captures correctly  
 - Cases where the recommendations matched your intuition  
 
+The user types it gives reasonable results is Happy Pop and Chill Lofi, which is because they go hand in hand. So songs like that would be captured correctly, and this is where it matched my intution. 
 ---
 
 ## 6. Limitations and Bias 
@@ -70,6 +83,7 @@ Prompts:
 - Cases where the system overfits to one preference  
 - Ways the scoring might unintentionally favor some users  
 
+Some limitations include that there are little songs with mid-range energy, with a 0.23 spread which makes it meaningless. Additionally, there are no songs with "sad" and negative valnece mood. There are no partial credit for adjacent genres such as indie pop vs pop. Lofi has the greatest amount of songs and lastly some of the fields are just completely ignored like valence and such. The scoring system would favor users that have more songs with a certain genre or mood or energy like Chill Lofi.
 ---
 
 ## 7. Evaluation  
@@ -82,6 +96,15 @@ Prompts:
 - What you looked for in the recommendations  
 - What surprised you  
 - Any simple tests or comparisons you ran  
+
+I tested 4 user profiles.
+First is Happy Pop and from that I would have expected Sunrise City to appear first which it did.
+
+Next is Sad Rock which I would have expected Storm Runner to go first because of its genre and it did. However, I did not expect Spacewalk Thoughts to appear since ambient songs are very different from rock, but based on the energy it does make sense. 
+
+Next is Relaxed Jazz which I would have expected Coffee Shop Stories to appear first which it did because it had a lot of matches. Overall, this one matched the most because there are a lot of slow songs in the songs list.
+
+Lastly is Intense Lofi which is interesting that it chose Storm Runner first since its a rock song. However, it does make sense based on the mood and energy match. It did change from before where genre had a 2.0 weight and now changed to 1.0 and it previously suggested Lofi songs more.
 
 No need for numeric metrics unless you created some.
 
@@ -98,6 +121,7 @@ Prompts:
 - Improving diversity among the top results  
 - Handling more complex user tastes  
 
+I think some additional features would include having partial genres, such as pop being considered for indie pop. I would also include the other categories like acousticness and valence. Another thing I would do is add recommendations based on what other users preferred which would imrpove the diversity. As for complex user tastes, I would have to include more songs which don't match the usual type of songs like the genre and mood not matching.
 ---
 
 ## 9. Personal Reflection  
@@ -109,3 +133,5 @@ Prompts:
 - What you learned about recommender systems  
 - Something unexpected or interesting you discovered  
 - How this changed the way you think about music recommendation apps  
+
+In the recommender system I learned about the concept of weights. I think it was interesting seeing the results for unconventional preferences like lofi and intense, and it made me realize that music recommendation apps have to go through a lot of testing to make it good. The biggest learning moment in my project, is looking through the results and realizing that the AI would not always produce the best results. The AI tool helped me with writing down the code quickly, but I needed to double check stuff like how the weights work or the commit message which was very general. Its surprising that a simple weighting system can provide recommendations because I would have thought that it would require lots of calculations. To extend this project further, I would include recommendations from other users that popular music streaming apps use as well.
